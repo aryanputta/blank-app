@@ -272,6 +272,7 @@ solana_tabs = st.tabs(
         "Impact",
         "Roadmap",
         "Governance",
+        "Investors",
     ]
 )
 
@@ -513,6 +514,120 @@ with solana_tabs[4]:
                 <h4>Community Voting</h4>
                 <p>1 KIND equals 1 vote, boosted 1.5× for staked tokens with quadratic voting for equitable outcomes.</p>
             </div>
+        </div>
+        """,
+        unsafe_allow_html=True,
+    )
+
+with solana_tabs[5]:
+    st.markdown("<h2 class='section-title'>Investor-ready growth engine</h2>", unsafe_allow_html=True)
+    st.markdown(
+        """
+        <p class="section-description">
+        KIND couples premium Solana-inspired performance with investor-grade incentives, referral mechanics,
+        and mobile-first dashboards so capital can accelerate both yield and planetary regeneration.
+        </p>
+        """,
+        unsafe_allow_html=True,
+    )
+
+    st.markdown(
+        """
+        <div class="solana-grid three">
+            <div class="gradient-card">
+                <h4>High-yield incentives</h4>
+                <ul>
+                    <li>Up to 20% APY staking rewards with dynamic lockups.</li>
+                    <li>Gasless ERC-2612 permits for effortless compounding.</li>
+                    <li>Governance voting power grows with staked balances.</li>
+                </ul>
+            </div>
+            <div class="gradient-card">
+                <h4>Social impact integration</h4>
+                <ul>
+                    <li>Transparent fee routing into humanitarian treasuries.</li>
+                    <li>Impact NFTs and dashboards track every contribution.</li>
+                    <li>Community votes direct capital to frontline causes.</li>
+                </ul>
+            </div>
+            <div class="gradient-card">
+                <h4>Advanced DeFi toolkit</h4>
+                <ul>
+                    <li>Yield farming and liquidity mining with deflationary burns.</li>
+                    <li>Cross-chain ready smart contracts and analytics APIs.</li>
+                    <li>Responsive mobile dashboard for on-the-go investors.</li>
+                </ul>
+            </div>
+        </div>
+        """,
+        unsafe_allow_html=True,
+    )
+
+    st.markdown("<h3 style='margin-top:2.5rem;'>Launch in five guided steps</h3>", unsafe_allow_html=True)
+    st.code(
+        """bash
+cd kind
+python -m venv venv
+source venv/bin/activate  # On Windows use venv\\Scripts\\activate
+pip install -r requirements.txt
+cp env.template .env
+python scripts/fetch_oz.py
+python scripts/deploy_enhanced.py
+python scripts/add_liquidity_v2.py --pair ETH --amount-kind 10000 --amount-eth 0.2
+python scripts/indexer.py
+uvicorn dashboards.investor_dashboard:app --reload
+        """
+    )
+
+    st.markdown(
+        """
+        <div class="solana-grid two" style="margin-top:2rem;">
+            <div class="gradient-card">
+                <h4>Feature spotlight</h4>
+                <ul>
+                    <li>Transfer fees ≤3% with 0.5% auto-burn to boost scarcity.</li>
+                    <li>Referral rewards distribute 1% of onboarding volume.</li>
+                    <li>Emergency pause and fee caps protect investor capital.</li>
+                </ul>
+            </div>
+            <div class="gradient-card">
+                <h4>Operations toolkit</h4>
+                <ul>
+                    <li>Deploy ERC-20 + ERC-2612 token and humanitarian treasury.</li>
+                    <li>Run FastAPI analytics with real-time price and volume feeds.</li>
+                    <li>Scripts manage staking, governance, marketing, and LP flows.</li>
+                </ul>
+            </div>
+        </div>
+        """,
+        unsafe_allow_html=True,
+    )
+
+    st.markdown("<h3 style='margin-top:2.5rem;'>Command cheat sheet</h3>", unsafe_allow_html=True)
+    operations_cols = st.columns(2)
+
+    operations_cols[0].markdown(
+        """
+        <div class="gradient-card">
+            <h4>Trading & liquidity</h4>
+            <ul>
+                <li><code>python scripts/dex_buy_sell.py buy-eth --eth 0.02</code></li>
+                <li><code>python scripts/dex_buy_sell.py sell-eth --kind 50</code></li>
+                <li><code>python scripts/add_liquidity_v2.py --pair ETH --amount-kind 10000 --amount-eth 0.2</code></li>
+            </ul>
+        </div>
+        """,
+        unsafe_allow_html=True,
+    )
+    operations_cols[1].markdown(
+        """
+        <div class="gradient-card">
+            <h4>Staking & governance</h4>
+            <ul>
+                <li><code>python scripts/staking_manager.py stake 1000 --days 90</code></li>
+                <li><code>python scripts/staking_manager.py claim-rewards</code></li>
+                <li><code>python scripts/governance_manager.py create \"Increase staking rewards to 25%\"</code></li>
+            </ul>
         </div>
         """,
         unsafe_allow_html=True,
