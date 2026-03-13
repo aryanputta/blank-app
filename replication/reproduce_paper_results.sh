@@ -1,6 +1,8 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
+SKIP_FIGURES="${SKIP_FIGURES:-1}"
+
 mkdir -p data artifacts
 
 if [ ! -f data/hybrid_satellite_telemetry.csv ] && [ ! -f data/simulated_telemetry.csv ]; then
@@ -27,9 +29,14 @@ python training/train_autoencoder.py
 python training/train_isolation_forest.py
 python evaluation/evaluate_models.py
 python evaluation/compute_metrics.py
-python figures/generate_fig5_architecture.py
-python figures/generate_fig8_results.py
-python figures/generate_fig9_fault_type.py
-python figures/generate_fig10_noise_effect.py
+
+if [ "$SKIP_FIGURES" = "0" ]; then
+  python figures/generate_fig5_architecture.py
+  python figures/generate_fig8_results.py
+  python figures/generate_fig9_fault_type.py
+  python figures/generate_fig10_noise_effect.py
+else
+  echo "Skipping figure generation (set SKIP_FIGURES=0 to enable)."
+fi
 
 echo "Replication workflow complete."

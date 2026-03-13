@@ -46,7 +46,7 @@ My embedded demonstration pipeline is:
 I measured end to end inference latency under **150 milliseconds** in the demo setup.
 
 ## Reproducibility
-I provide scripts that regenerate dataset processing, model training, evaluation, and figures. If Kaggle data is not downloaded yet, my replication script creates a local simulation fallback so the full workflow still runs end to end.
+I provide scripts that regenerate dataset processing, model training, and evaluation. If Kaggle data is not downloaded yet, my replication script creates a local simulation fallback so the full workflow still runs end to end. I skip figure generation by default in the one-command script so setup is faster.
 
 ### 1) Download dataset from Kaggle
 ```bash
@@ -86,7 +86,7 @@ python evaluation/evaluate_models.py
 python evaluation/compute_metrics.py
 ```
 
-### 5) Regenerate figures
+### 5) Regenerate figures (optional)
 ```bash
 python figures/generate_fig5_architecture.py
 python figures/generate_fig8_results.py
@@ -94,9 +94,14 @@ python figures/generate_fig9_fault_type.py
 python figures/generate_fig10_noise_effect.py
 ```
 
-### One command reproduction
+### One command reproduction (figures skipped by default)
 ```bash
 bash replication/reproduce_paper_results.sh
+```
+
+To include figures in the one-command run:
+```bash
+SKIP_FIGURES=0 bash replication/reproduce_paper_results.sh
 ```
 
 ## Figure Reproduction
