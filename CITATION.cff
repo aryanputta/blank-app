@@ -1,0 +1,10 @@
+cff-version: 1.2.0
+title: "Hybrid Satellite Telemetry Anomaly Detection"
+message: "If you use this repository, please cite my paper and this codebase."
+type: software
+authors:
+  - family-names: Putta
+    given-names: Aryan
+repository-code: "https://github.com/aryanputta/satellite-anomaly-detection"
+license: MIT
+version: 1.0.0
