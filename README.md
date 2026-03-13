@@ -333,3 +333,29 @@ Hardware BOM for data reproduction:
 
 - Code: MIT
 - Dataset: CC BY 4.0
+
+
+## 14) Troubleshooting
+
+### Kaggle upload error: Permission `datasets.create` was denied
+
+I included a helper script to publish or version a dataset while automatically writing metadata and validating credentials:
+
+```bash
+python kaggle_tools/publish_dataset.py   --path /kaggle/working/my_dataset_upload   --id aryanputta/hybrid-satellite-telemetry   --title "Hybrid Satellite Telemetry Anomaly Dataset"
+```
+
+If your dataset already exists, use:
+
+```bash
+python kaggle_tools/publish_dataset.py   --path /kaggle/working/my_dataset_upload   --id aryanputta/hybrid-satellite-telemetry   --title "Hybrid Satellite Telemetry Anomaly Dataset"   --version --message "dataset update"
+```
+
+Credentials can be provided either through `~/.kaggle/kaggle.json` or env vars `KAGGLE_USERNAME` and `KAGGLE_KEY`.
+
+### Merge conflict check
+
+```bash
+bash scripts/check_merge_conflicts.sh
+```
+
