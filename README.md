@@ -353,9 +353,14 @@ python kaggle_tools/publish_dataset.py   --path /kaggle/working/my_dataset_uploa
 
 Credentials can be provided either through `~/.kaggle/kaggle.json` or env vars `KAGGLE_USERNAME` and `KAGGLE_KEY`.
 
+Quick wrapper:
+
+```bash
+bash replication/publish_kaggle_dataset.sh /kaggle/working/my_dataset_upload aryanputta/hybrid-satellite-telemetry "Hybrid Satellite Telemetry Anomaly Dataset" create
+```
+
 ### Merge conflict check
 
 ```bash
 bash scripts/check_merge_conflicts.sh
 ```
-
